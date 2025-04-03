@@ -38,6 +38,7 @@ wss.on('connection', (socket) => __awaiter(void 0, void 0, void 0, function* () 
         var _a;
         const transcript = (_a = data.channel.alternatives[0]) === null || _a === void 0 ? void 0 : _a.transcript;
         if (transcript) {
+            console.log("transcribed: ", transcript);
             socket.send(transcript);
         }
     });

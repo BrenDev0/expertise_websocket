@@ -31,6 +31,7 @@ wss.on('connection', async (socket: WebSocket) => {
   live.on(LiveTranscriptionEvents.Transcript, (data) => {
     const transcript = data.channel.alternatives[0]?.transcript;
     if (transcript) {
+      console.log("transcribed: ", transcript)
       socket.send(transcript);
     }
   });
