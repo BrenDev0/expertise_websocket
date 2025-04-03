@@ -1,5 +1,3 @@
-import dotenv from "dotenv"
-dotenv.config();
 import express from 'express';
 import { WebSocketServer, WebSocket } from 'ws';
 import http from 'http';
@@ -33,7 +31,6 @@ wss.on('connection', async (socket: WebSocket) => {
   live.on(LiveTranscriptionEvents.Transcript, (data) => {
     const transcript = data.channel.alternatives[0]?.transcript;
     if (transcript) {
-      console.log('Transcribed:', transcript);
       socket.send(transcript);
     }
   });

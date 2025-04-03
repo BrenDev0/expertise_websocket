@@ -12,8 +12,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const dotenv_1 = __importDefault(require("dotenv"));
-dotenv_1.default.config();
 const express_1 = __importDefault(require("express"));
 const ws_1 = require("ws");
 const http_1 = __importDefault(require("http"));
@@ -40,7 +38,6 @@ wss.on('connection', (socket) => __awaiter(void 0, void 0, void 0, function* () 
         var _a;
         const transcript = (_a = data.channel.alternatives[0]) === null || _a === void 0 ? void 0 : _a.transcript;
         if (transcript) {
-            console.log('Transcribed:', transcript);
             socket.send(transcript);
         }
     });
